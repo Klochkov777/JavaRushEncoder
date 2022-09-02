@@ -6,9 +6,9 @@ import java.nio.file.Path;
 
 public class JavaRushEncoder {
     public static void main(String[] args) {
-        if (isToEncodeAndCorrectOtherArgs(args)){
-            creteEncodedFile(args);
-        }
+//        if (!isToEncodeAndCorrectOtherArgs(args)){
+//
+//        }
     }
 
 
