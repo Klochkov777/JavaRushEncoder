@@ -19,11 +19,13 @@ public class Encoder {
         this.key = key;
     }
 
-    public void writeEncodeFile(Path pathInput, Path pathOutput, Alphabet alphabet){
+    public void writeEncodeFile(Alphabet alphabet){
         try(BufferedReader reader = new BufferedReader(new FileReader(pathInput.toFile()));
             BufferedWriter writer = new BufferedWriter(new FileWriter(pathOutput.toFile(), true))) {
             while (reader.ready()){
-                writer.write(encodeLine(reader.readLine(), alphabet));
+                String str = reader.readLine();
+                str = encodeLine(str, alphabet);
+                writer.write(str + "\n");
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -48,6 +50,7 @@ public class Encoder {
         if ((indexNotEncodeLetter = alphabet.listCapitalLetters.indexOf(letter)) != -1) {
             return getEncodedLetterByIndexOfNotEncodedLetter(indexNotEncodeLetter, alphabet.listCapitalLetters, shift);
         } else {
+            indexNotEncodeLetter = alphabet.listLittleLetters.indexOf(letter);
             return getEncodedLetterByIndexOfNotEncodedLetter(indexNotEncodeLetter, alphabet.listLittleLetters, shift);
         }
     }
