@@ -1,3 +1,4 @@
+import additional.Communicator;
 import additional.Reviser;
 import alphabets.Alphabet;
 import alphabets.EnglishAlphabet;
@@ -21,6 +22,7 @@ public class JavaRushEncoder {
             encoderDecoder = new EncoderCesar(pathInputFile, Integer.parseInt(args[2]));
         }
         if (reviser.isExistDecodedFileWhenEncode(encoderDecoder)) {
+            Communicator.messageFileExists();
             return;
         } else {
             createEncodedDecodedFile(alphabet, encoderDecoder);
@@ -29,7 +31,7 @@ public class JavaRushEncoder {
     }
 
     public static void createEncodedDecodedFile(Alphabet alphabet, EncoderDecoder encoderDecoder) {
-        encoderDecoder.createFileForEncoding();
-        encoderDecoder.writeEncodeFile(alphabet);
+        encoderDecoder.createFileForEncodingDecoding();
+        encoderDecoder.writeEncodeDecodeFile(alphabet);
     }
 }

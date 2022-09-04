@@ -19,7 +19,7 @@ public class Reviser {
 
     public boolean isFirstArgCorrect() {
         if (!args[0].equalsIgnoreCase("encode") && !args[0].equalsIgnoreCase("decode")) {
-            System.out.println("First arg is not correct. Enter right arg (\"encode/decode\")");
+            Communicator.messageFirstArg();
             return false;
         }
         return true;
@@ -28,7 +28,7 @@ public class Reviser {
     public boolean isSecondArgCorrect() {
         Path pathInputFile = Path.of(args[1]);
         if (Files.notExists(pathInputFile)) {
-            System.out.println("File for encoding does not exist, restart application and enter right path");
+            Communicator.messageSecondArg();
             return false;
         }
         return true;
@@ -38,7 +38,7 @@ public class Reviser {
         char[] arr = args[2].toCharArray();
         for (char c : arr) {
             if (!Character.isDigit(c)) {
-                System.out.println("Third arg must be number, please restart application with correct arg.");
+                Communicator.messageThirdArg();
                 return false;
             }
         }
@@ -54,15 +54,10 @@ public class Reviser {
     }
 
     public boolean isExistDecodedFileWhenEncode(EncoderDecoder encoderDecoder) {
-        String str = "";
+        String str;
         if (encoderDecoder instanceof DecoderCesar)
             str = "(decoded)";
         else str = "(encoded)";
-        if (!Files.notExists(Path.of(args[1] + str))) {
-            System.out.println("File is exist with such name as we are creating. " +
-                    "Please delete file or move this file and then restart application");
-            return true;
-        }
-        return false;
+        return (!Files.notExists(Path.of(args[1] + str)));
     }
 }

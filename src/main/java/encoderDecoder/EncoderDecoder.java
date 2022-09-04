@@ -17,13 +17,13 @@ public abstract class EncoderDecoder {
         this.key = key;
     }
 
-    public void writeEncodeFile(Alphabet alphabet) {
+    public void writeEncodeDecodeFile(Alphabet alphabet) {
         Path pathOutput = getPathOutput(pathInput);
         try (BufferedReader reader = new BufferedReader(new FileReader(pathInput.toFile()));
              BufferedWriter writer = new BufferedWriter(new FileWriter(pathOutput.toFile(), true))) {
             while (reader.ready()) {
                 String str = reader.readLine();
-                str = encodeLine(str, alphabet);
+                str = encodeDecodeLine(str, alphabet);
                 writer.write(str + "\n");
             }
         } catch (IOException e) {
@@ -31,36 +31,36 @@ public abstract class EncoderDecoder {
         }
     }
 
-    public String encodeLine(String line, Alphabet alphabet) {
+    public String encodeDecodeLine(String line, Alphabet alphabet) {
         int shiftInAlphabet = calculateShiftInAlphabetByKey(key, alphabet);
         var stringBuilder = new StringBuilder();
         char[] charArray = line.toCharArray();
         for (char letter : charArray) {
-            stringBuilder.append(encodedLetter(letter, alphabet, shiftInAlphabet));
+            stringBuilder.append(encodeDecodeLetter(letter, alphabet, shiftInAlphabet));
         }
         return stringBuilder.toString();
     }
 
-    public char encodedLetter(char letter, Alphabet alphabet, int shift) {
+    public char encodeDecodeLetter(char letter, Alphabet alphabet, int shift) {
         int indexNotEncodeLetter;
         if (checkContainsInsideAlphabet(letter, alphabet)) {
             return letter;
         }
         if ((indexNotEncodeLetter = alphabet.listCapitalLetters.indexOf(letter)) != -1) {
-            return getEncodedLetterByIndexOfNotEncodedLetter(indexNotEncodeLetter, alphabet.listCapitalLetters, shift);
+            return getEncodedDecodedLetterByIndexOfNotEncodedLetter(indexNotEncodeLetter, alphabet.listCapitalLetters, shift);
         } else {
             indexNotEncodeLetter = alphabet.listLittleLetters.indexOf(letter);
-            return getEncodedLetterByIndexOfNotEncodedLetter(indexNotEncodeLetter, alphabet.listLittleLetters, shift);
+            return getEncodedDecodedLetterByIndexOfNotEncodedLetter(indexNotEncodeLetter, alphabet.listLittleLetters, shift);
         }
     }
 
-    private char getEncodedLetterByIndexOfNotEncodedLetter(int indexOfNotEncodedLetter, List<Character> listAlphabet, int shift) {
+    private char getEncodedDecodedLetterByIndexOfNotEncodedLetter(int indexOfNotEncodedLetter, List<Character> listAlphabet, int shift) {
         int indexEncodeLetter = calculateIndexNewMeaningOfLetter(indexOfNotEncodedLetter, shift,
                 listAlphabet.size() - 1);
         return listAlphabet.get(indexEncodeLetter);
     }
 
-    public void createFileForEncoding() {
+    public void createFileForEncodingDecoding() {
         try {
             Files.createFile(getPathOutput(pathInput));
         } catch (IOException e) {
