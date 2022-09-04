@@ -1,4 +1,4 @@
-package encoders;
+package encoderDecoder;
 
 import alphabets.Alphabet;
 
@@ -7,22 +7,21 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-public class Encoder {
+public abstract class EncoderDecoder {
     private int key;
     private Path pathInput;
-    private Path pathOutput;
 
 
-    public Encoder(Path pathInput, int key) {
+    public EncoderDecoder(Path pathInput, int key) {
         this.pathInput = pathInput;
-        this.pathOutput = Path.of(pathInput.toString() + "(encoded)");
         this.key = key;
     }
 
-    public void writeEncodeFile(Alphabet alphabet){
-        try(BufferedReader reader = new BufferedReader(new FileReader(pathInput.toFile()));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(pathOutput.toFile(), true))) {
-            while (reader.ready()){
+    public void writeEncodeFile(Alphabet alphabet) {
+        Path pathOutput = getPathOutput(pathInput);
+        try (BufferedReader reader = new BufferedReader(new FileReader(pathInput.toFile()));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(pathOutput.toFile(), true))) {
+            while (reader.ready()) {
                 String str = reader.readLine();
                 str = encodeLine(str, alphabet);
                 writer.write(str + "\n");
@@ -61,27 +60,35 @@ public class Encoder {
         return listAlphabet.get(indexEncodeLetter);
     }
 
-    public void createFileForEncoding(Path path) {
+    public void createFileForEncoding() {
         try {
-            Files.createFile(Path.of(path.toString() + "(encoded)"));
+            Files.createFile(getPathOutput(pathInput));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Path getPathOutput(Path path) {
+        if (this instanceof EncoderCesar) {
+            path = Path.of(path.toString() + "(encoded)");
+        } else if (this instanceof DecoderCesar) {
+            path = Path.of(path.toString() + "(decoded)");
+        }
+        return path;
     }
 
     private boolean checkContainsInsideAlphabet(char letter, Alphabet alphabet) {
         return (!alphabet.listCapitalLetters.contains(letter) && !alphabet.listLittleLetters.contains(letter));
     }
 
-    private int calculateIndexNewMeaningOfLetter(int startIndex, int shift, int lastIndex) {
-        int result = startIndex + shift;
-        if (result > lastIndex) {
-            result = result - lastIndex - 1;
-        }
-        return result;
-    }
 
     private int calculateShiftInAlphabetByKey(int key, Alphabet alphabet) {
         return key % alphabet.getCountOfLetters();
+    }
+
+    public abstract int calculateIndexNewMeaningOfLetter(int startIndex, int shift, int lastIndex);
+
+    public Path getPathInput() {
+        return pathInput;
     }
 }

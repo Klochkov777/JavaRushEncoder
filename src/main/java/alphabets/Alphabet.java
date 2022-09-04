@@ -8,6 +8,7 @@ public abstract class Alphabet {
     public List<Character> listCapitalLetters;
     public List<Character> listLittleLetters;
     private int countOfLetters;
+
     public int getCountOfLetters() {
         return countOfLetters;
     }
@@ -15,15 +16,5 @@ public abstract class Alphabet {
     public void setCountOfLetters(int countOfLetters) {
         this.countOfLetters = countOfLetters;
     }
-//    private List<Character> createRightOrderAlphabetCapitalLetters(Character... characters) {
-//        List<Character> result = new ArrayList<>();
-//        Collections.addAll(result, characters);
-//        return result;
-//    }
-//
-//    private List<Character> createRightOrderAlphabetNotCapitalLetters(Character... characters) {
-//        List<Character> result = new ArrayList<>();
-//        Collections.addAll(result, characters);
-//        return result;
-//    }
+
 }
