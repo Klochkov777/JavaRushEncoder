@@ -1,2 +1,2 @@
 # JavaRushEncoder
-This application encode and decode file by type Cesar's way
+This application encode and decode file by Cesar's way
