@@ -72,6 +72,7 @@ public abstract class EncoderDecoder {
         if (this instanceof EncoderCesar) {
             path = Path.of(path.toString() + "(encoded)");
         } else if (this instanceof DecoderCesar) {
+            if (path.toString().endsWith("(encoded)")){path = Path.of(path.toString().replace("(encoded)", ""));}
             path = Path.of(path.toString() + "(decoded)");
         }
         return path;
