@@ -1,6 +1,10 @@
-package additional;
+package priv.klochkov.encoder.additional;
+
 
 public class Communicator {
+    public static void messageNoArgs(){
+        System.out.println("You have not entered args yet");
+    }
     public static void messageFirstArg(){
         System.out.println("First arg is not correct. Enter right arg (\"encode/decode\")");
     }public static void messageSecondArg(){

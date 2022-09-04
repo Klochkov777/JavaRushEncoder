@@ -6,6 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="0e3635ff-bba6-4819-9cb0-d52c100927bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JavaRushEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JavaRushEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/additional/Communicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/klochkov/encoder/additional/Communicator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/additional/Reviser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/klochkov/encoder/additional/Reviser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alphabets/Alphabet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/klochkov/encoder/alphabets/Alphabet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alphabets/EnglishAlphabet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/klochkov/encoder/alphabets/EnglishAlphabet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/encoderDecoder/DecoderCesar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/klochkov/encoder/encoderDecoder/DecoderCesar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/encoderDecoder/EncoderCesar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/klochkov/encoder/encoderDecoder/EncoderCesar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/encoderDecoder/EncoderDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/klochkov/encoder/encoderDecoder/EncoderDecoder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="feature" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,6 +54,20 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="JavaRushEncoder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaRushEncoder" />
+      <module name="JavaRushEncoder" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.JavaRushEncoder" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -67,7 +90,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="HEAD" />
+                        <option value="feature" />
                       </list>
                     </value>
                   </entry>
@@ -83,12 +106,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/encoderDecoder/EncoderCesar.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/priv/klochkov/encoder/encoderDecoder/EncoderCesar.java</url>
           <line>35</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/additional/Reviser.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/priv/klochkov/encoder/additional/Reviser.java</url>
           <line>60</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>

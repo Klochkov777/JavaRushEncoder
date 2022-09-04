@@ -1,10 +1,10 @@
-import additional.Communicator;
-import additional.Reviser;
-import alphabets.Alphabet;
-import alphabets.EnglishAlphabet;
-import encoderDecoder.DecoderCesar;
-import encoderDecoder.EncoderCesar;
-import encoderDecoder.EncoderDecoder;
+import priv.klochkov.encoder.additional.Communicator;
+import priv.klochkov.encoder.additional.Reviser;
+import priv.klochkov.encoder.alphabets.Alphabet;
+import priv.klochkov.encoder.alphabets.EnglishAlphabet;
+import priv.klochkov.encoder.encoderDecoder.DecoderCesar;
+import priv.klochkov.encoder.encoderDecoder.EncoderCesar;
+import priv.klochkov.encoder.encoderDecoder.EncoderDecoder;
 
 import java.nio.file.Path;
 

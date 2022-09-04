@@ -1,6 +1,4 @@
-package alphabets;
-
-import alphabets.Alphabet;
+package priv.klochkov.encoder.alphabets;
 
 import java.util.ArrayList;
 import java.util.Arrays;

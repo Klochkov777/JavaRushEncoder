@@ -1,6 +1,6 @@
-package encoderDecoder;
+package priv.klochkov.encoder.encoderDecoder;
 
-import alphabets.Alphabet;
+import priv.klochkov.encoder.alphabets.Alphabet;
 
 import java.io.*;
 import java.nio.file.Files;

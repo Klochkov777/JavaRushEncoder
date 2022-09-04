@@ -1,4 +1,4 @@
-package encoderDecoder;
+package priv.klochkov.encoder.encoderDecoder;
 
 import java.nio.file.Path;
 

@@ -1,7 +1,7 @@
-package additional;
+package priv.klochkov.encoder.additional;
 
-import encoderDecoder.DecoderCesar;
-import encoderDecoder.EncoderDecoder;
+import priv.klochkov.encoder.encoderDecoder.DecoderCesar;
+import priv.klochkov.encoder.encoderDecoder.EncoderDecoder;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,6 +18,7 @@ public class Reviser {
     }
 
     public boolean isFirstArgCorrect() {
+        if (args.length == 0) {Communicator.messageNoArgs(); return false;}
         if (!args[0].equalsIgnoreCase("encode") && !args[0].equalsIgnoreCase("decode")) {
             Communicator.messageFirstArg();
             return false;
